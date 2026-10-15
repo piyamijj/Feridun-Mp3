@@ -54,6 +54,7 @@ class MainActivity : AppCompatActivity() {
     private val ui = Handler(Looper.getMainLooper())
     private var userSeeking = false
     private var permissionAskedOnce = false
+    private var crashMode = false
 
     private val ticker = object : Runnable {
         override fun run() {
@@ -79,6 +80,20 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        val crash = java.io.File(filesDir, App.CRASH_FILE)
+        if (crash.exists()) {
+            val text = crash.readText()
+            crash.delete()
+            val tv = TextView(this).apply {
+                this.text = text
+                textSize = 11f
+                setTextIsSelectable(true)
+                setPadding(24, 24, 24, 24)
+            }
+            crashMode = true
+            setContentView(android.widget.ScrollView(this).apply { addView(tv) })
+            return
+        }
         setContentView(R.layout.activity_main)
         toolbar = findViewById(R.id.toolbar)
         setSupportActionBar(toolbar)
@@ -118,6 +133,7 @@ class MainActivity : AppCompatActivity() {
 
     override fun onStart() {
         super.onStart()
+        if (crashMode) return
         val token = SessionToken(this, android.content.ComponentName(this, PlaybackService::class.java))
         val future = MediaController.Builder(this, token).buildAsync()
         controllerFuture = future
@@ -131,6 +147,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     override fun onStop() {
+        if (crashMode) { super.onStop(); return }
         ui.removeCallbacks(ticker)
         controller?.removeListener(playerListener)
         controllerFuture?.let { MediaController.releaseFuture(it) }
