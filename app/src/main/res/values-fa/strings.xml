@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">فریدون ام‌پی‌تری</string>
+    <string name="settings">تنظیمات</string>
+    <string name="language">زبان</string>
+    <string name="language_system">پیش‌فرض سیستم</string>
+    <string name="no_music">هیچ فایل صوتی در این دستگاه پیدا نشد.</string>
+    <string name="permission_needed">برای نمایش فهرست موسیقی، اجازهٔ خواندن فایل‌های صوتی لازم است.</string>
+    <string name="grant_permission">دادن اجازه</string>
+    <string name="permission_denied_settings">اجازه رد شد. آن را در تنظیمات سیستم برنامه فعال کنید.</string>
+    <string name="unknown_artist">هنرمند ناشناس</string>
+    <string name="nothing_playing">چیزی پخش نمی‌شود</string>
+    <string name="play">پخش</string>
+    <string name="pause">توقف</string>
+    <string name="next">بعدی</string>
+    <string name="previous">قبلی</string>
+    <string name="song_count">%1$d آهنگ</string>
+    <string name="refresh">تازه‌سازی</string>
+    <string name="open_app_settings">باز کردن تنظیمات</string>
+</resources>

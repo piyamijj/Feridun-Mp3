@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Feridun MP3</string>
+    <string name="settings">Ayarlar</string>
+    <string name="language">Dil</string>
+    <string name="language_system">Sistem varsayılanı</string>
+    <string name="no_music">Bu cihazda ses dosyası bulunamadı.</string>
+    <string name="permission_needed">Müziklerinizi listelemek için ses dosyalarını okuma izni gerekir.</string>
+    <string name="grant_permission">İzin ver</string>
+    <string name="permission_denied_settings">İzin reddedildi. Sistem uygulama ayarlarından etkinleştirin.</string>
+    <string name="unknown_artist">Bilinmeyen sanatçı</string>
+    <string name="nothing_playing">Çalan bir şey yok</string>
+    <string name="play">Oynat</string>
+    <string name="pause">Duraklat</string>
+    <string name="next">Sonraki</string>
+    <string name="previous">Önceki</string>
+    <string name="song_count">%1$d şarkı</string>
+    <string name="refresh">Yenile</string>
+    <string name="open_app_settings">Ayarları aç</string>
+</resources>
