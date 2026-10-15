@@ -217,7 +217,7 @@ class MainActivity : AppCompatActivity() {
 
     private fun loadTracks() {
         io.execute {
-            val result = try { TrackRepository.load(applicationContext) } catch (e: SecurityException) { emptyList() }
+            val result = try { TrackRepository.load(applicationContext) } catch (e: Exception) { emptyList() }
             runOnUiThread {
                 if (isDestroyed) return@runOnUiThread
                 tracks = result

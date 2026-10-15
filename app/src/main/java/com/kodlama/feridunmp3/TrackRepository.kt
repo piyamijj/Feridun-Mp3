@@ -35,7 +35,7 @@ object TrackRepository {
         context.contentResolver.query(
             MediaStore.Audio.Media.EXTERNAL_CONTENT_URI,
             projection, selection, args,
-            "${MediaStore.Audio.Media.TITLE} COLLATE LOCALIZED ASC"
+            null
         )?.use { c ->
             val idCol = c.getColumnIndexOrThrow(MediaStore.Audio.Media._ID)
             val titleCol = c.getColumnIndexOrThrow(MediaStore.Audio.Media.TITLE)
@@ -61,6 +61,10 @@ object TrackRepository {
                         .build()
                 )
             }
+        }
+        val collator = java.text.Collator.getInstance(java.util.Locale.getDefault())
+        result.sortWith { a, b ->
+            collator.compare(a.mediaMetadata.title?.toString() ?: "", b.mediaMetadata.title?.toString() ?: "")
         }
         return result
     }
